@@ -1,3 +1,248 @@
 <resources>
-    <string name="app_name">ButTraking</string>
+    <string name="app_name">BusTracking</string>
+    //-------------(Global)Heading and title string-------------
+
+    <style name="Heading_text_style">bold</style>
+
+    <string name="heading_text_layout_width">wrap_content</string>
+    <string name="heading_text_layout_height">wrap_content</string>
+    <string name="heading_layout_width">match_parent</string>
+
+    //-------------(Classes all Class)Heading and title string-------------
+    <string name="heading_classes">Classes</string>
+    <string name="title_classes">Assign Subject</string>
+
+
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="onboarding_title1">Hello , Welcome</string>
+    <string name="onboarding_title2">Scoolify</string>
+    <string name="onboarding_title3">Here, We are Ready</string>
+    <string name="onboarding_description1">to free education management system application...</string>
+    <string name="onboarding_description2">easy to use school management system for teachers and students</string>
+    <string name="oboarding_description3">This moibile app is for every registered user like Amin , Students and Parents.</string>
+    <string name="API_Key">AIzaSyAFDOC21jOwNmm4xASd_mL7AoA1xXOWdyY</string>
+
+    <string-array name="event_types">
+        <item>Event</item>
+        <item>Holidays</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="dsfaf">Home</string>
+
+    <string name="hello_blank_fragment">Fee Particular</string>
+    <string name="open_nav">Open Navigation Drawer</string>
+    <string name="close_nav">Close Navigation Drawer</string>
+
+    <string-array name="select_class">
+        <item>All Class</item>
+        <item>specific_class</item>
+        <item>specific_student</item>
+    </string-array>
+
+    <string-array name="select_feeType">
+        <item>Admission Fees</item>
+        <item>Examination Fees</item>
+        <item>Books</item>
+        <item>Uniform</item>
+
+    </string-array>
+
+    <string-array name="All_Student">
+        <item>specific_class</item>
+        <item>specific_student</item>
+        <item>specific_employee</item>
+    </string-array>
+    <string-array name="AllStudent">
+        <item>Specific Class</item>
+        <item>Specific Student</item>
+        <item>Specific Employees</item>
+    </string-array>
+
+
+    <string-array name="Spinnner_Loading">
+        <item>Loading...</item>
+    </string-array>
+
+
+    <string-array name="select">
+        <item>  All Students</item>
+        <item>  All Teachers</item>
+        <item>  Specific Class</item>
+        <item>  Specific Student</item>
+        <item>  Specific Teacher</item>
+    </string-array>
+
+    <string-array name="select_month">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <string-array name="select_income">
+        <item>--Select Income--</item>
+        <item>Less than 50,000</item>
+        <item>50,000 – 100,000</item>
+        <item>100,000 – 350,000</item>
+        <item>350,000 – 500,000</item>
+        <item>500,000 – 1,000,000</item>
+        <item>1,000,000 - Above</item>
+
+
+    </string-array>
+
+    <string-array name="select_Status">
+        <item>Active</item>
+        <item>Inactive</item>
+
+    </string-array>
+
+
+    <!--      Income Type (Chart of Account)    -->
+
+    <string-array name="income_type">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>--Select Currency--</item>
+        <item>rupees</item>
+        <item>doller</item>
+        <item>ero</item>
+        <item>leke</item>
+    </string-array>
+
+
+    <string-array name="country">
+        <item>--Select Country--</item>
+        <item>India</item>
+        <item>USA</item>
+        <item>Europe</item>
+        <item>Afrika</item>
+    </string-array>
+
+    //====================Select Religion In Add Employees============
+    <string-array name="select_Religion_Employees">
+        <item>--Select Religion--</item>
+        <item>Buddhism</item>
+        <item>Hinduism</item>
+        <item>Sikhism</item>
+        <item>Islam</item>
+        <item>Christianity</item>
+        <item>Jainism</item>
+        <item>Zoroastrianism</item>
+        <item>Judaism</item>
+        <item>Animism/Adivasi</item>
+        <item>Other</item>
+    </string-array>
+
+    <string-array name="select_Cast">
+        <item>--Select Caste--</item>
+        <item>SC</item>
+        <item>OBC</item>
+        <item>ST</item>
+        <item>Open</item>
+    </string-array>
+
+    <string-array name="select_OrphanStudent">
+        <item>--Select--</item>
+        <item>Yes</item>
+        <item>No</item>
+    </string-array>
+
+
+    //====================Select Blood Group In Add Employees============
+    <string-array name="select_Blood_Group_Employees">
+        <item>--Select Blood Group--</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+
+    <string-array name="select_Rol_Employees">
+        <item>--Select Role--</item>
+        <item>Principal</item>
+        <!--        <item>Management Staff</item>-->
+        <item>Teacher</item>
+        <!--        <item>Accountant</item>-->
+        <!--        <item>Store Manager</item>-->
+        <item>Other</item>
+    </string-array>
+    <string-array name="select_Type">
+        <item>--Select Role--</item>
+        <item>Auto</item>
+        <!--        <item>Management Staff</item>-->
+        <item>Bus</item>
+
+    </string-array>
+
+    <string-array name="select_Gender_Employees">
+        <item>--Select Gender--</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </string-array>
+    //=================Assign Subject================================
+    <string name="student">Student</string>
+    <string name="assign_subject">Assign Subject</string>
+    <string name="create_subject">Create Subject</string>
+    <string name="select_class">Select Class</string>
+    <string name="subject_name">Subject Name</string>
+    <string name="marks">Marks</string>
+    <string name="name_hint">Name</string>
+    <string name="total_exam_hint">Total Exam</string>
+    <string name="add_more">Add More</string>
+    <string name="remove">Remove</string>
+    <string name="assign_subject_button">Assign Subject</string>
+
+    //=================Classes Subject================================
+    <string-array name="class_teacher_names">
+        <item>Mr. Smith</item>
+        <item>Ms. Johnson</item>
+        <item>Mrs. Davis</item>
+        <item>Mr. Brown</item>
+        <item>Ms. Wilson</item>
+    </string-array>
+
+    //================class new======================
+    <string name="class_name">Class Name</string>
+    <string name="enter_class">Enter Class</string>
+    <string name="termly_tuition_fees">Termly Tuition Fees</string>
+    <string name="tuition_fees">Tuition Fees</string>
+    <string name="select_class_teacher">Select Class Teacher</string>
+    <string name="create_class">Create Class</string>
+
 </resources>
