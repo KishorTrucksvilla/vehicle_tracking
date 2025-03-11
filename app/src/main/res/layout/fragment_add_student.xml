@@ -3,12 +3,1614 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.AddStudent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--  Heading Layout    -->
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:background="@drawable/heading_background">
+
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:layout_weight="1.5"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:layout_marginLeft="10dp"
+
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size"
+
+
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <!--        android:drawableLeft="@drawable/student_cap_svgrepo_com"-->
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Student"
+            android:drawablePadding="8dp"
+            android:drawableLeft="@drawable/student_cap_svgrepo_com"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/title_text_size"
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/noClassAvailableLayout"
+        android:visibility="gone"
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_margin="8dp"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Plese add student information">
+
+        </TextView>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/addNewStudentLayout"
+        android:visibility="visible"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_marginBottom="20dp"
+            android:orientation="vertical"
+            android:layout_margin="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:textColor="@color/global_textview_color"
+                android:text="Add New Student"
+                android:textStyle="bold"
+                android:textSize="@dimen/sub_heading_text_size"
+                android:gravity="center"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Student Information"
+                android:textColor="#9E9E9E"
+                android:layout_marginTop="16dp"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:textSize="18dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="10dp"
+                android:background="#9E9E9E"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <!--  school id number  -->
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="School id"
+                        android:textColor="@color/white" />
+
+                    <EditText
+                        android:id="@+id/etschoolId"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:background="@drawable/edit_text_background1"
+                        android:hint=""
+                        android:paddingStart="20dp">
+                    </EditText>
+                </LinearLayout>
+
+                <!--                app:startIconDrawable="@drawable/student_name"-->
+                <!--  Student Full Name  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etStudentNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Student Full Name"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    app:startIconDrawable="@drawable/graduation_cap"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etStudentName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.7"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Upload Picture"
+                            android:textColor="@color/global_textview_color" />
+
+                        <ImageView
+                            android:visibility="visible"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/imageaddimg" />
+
+                        <Button
+                            android:id="@+id/btnUpload"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="8dp"
+                            android:backgroundTint="@color/global_button_background"
+                            android:text="Upload Picture"
+                            android:textStyle="bold"
+                            android:textColor="@color/global_button_text_color"
+                            android:textSize="10sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1.0">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_gravity="center"
+                            app:cardCornerRadius="16dp"
+                            app:cardElevation="4dp"> <!-- Optional: shadow effect -->
+
+                            <ImageView
+                                android:id="@+id/imageStudent"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:scaleType="centerCrop" />
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--                app:startIconDrawable="@drawable/registration_no"-->
+                <!--  Registration no.  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Registration no."
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    android:id="@+id/etregistrationNoLayout"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:startIconDrawable="@drawable/registration_no"
+
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:inputType="text"
+                        android:id="@+id/etregistrationNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Select Class  -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/spStudentSelectClassLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:drawableLeft="@drawable/board"
+                        android:drawablePadding="5dp"
+                        android:text="select Class"
+                        />
+
+                    <Spinner
+                        android:id="@+id/spStudentSelectClass"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"/>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/categoryConnectionLayout"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:visibility="gone"
+                        android:hint="Enter Category of Connection"
+                        android:padding="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/categoryConnectionEt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:padding="5dp"
+                        android:drawableLeft="@drawable/board"
+                        android:drawablePadding="5dp"
+                        android:text="select Class"
+                        />
+
+                    <Spinner
+                        android:id="@+id/spStudentSelectClass2"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+
+                        />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:visibility="gone"
+                        android:hint="Enter Category of Connection"
+                        android:padding="5dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="text"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <!--  Date of admission  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etDateOfAdmissionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date of Admission"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    app:helperText="Double click to enter date"
+                    app:startIconDrawable="@drawable/calendar"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDateOfAdmission"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:editable="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  Discount fee  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Discount in Fee"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    app:startIconDrawable="@drawable/money_svgrepo_com"
+                    app:helperText=""
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDiscountFees"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Phone number  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Phone Number"
+                    android:id="@+id/etPhoneNumberLayout"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:startIconDrawable="@drawable/phone_svgrepo_com"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:inputType="number"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. Other Information"
+                    android:textColor="#9E9E9E"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:textSize="18dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#9E9E9E"/>
+
+                <!--  select gender  -->
+                <LinearLayout
+                    android:id="@+id/radioSelectGenderLayout"
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gender"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/global_textview_color"/>
+                    <RadioGroup
+                        android:id="@+id/radioGroupGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp">
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/radio_male"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/male_svgrepo_com"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Male" />
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/radio_female"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/female_svgrepo_com"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Female" />
+
+                        <RadioButton
+                            android:visibility="gone"
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/radio_other"
+                            android:drawablePadding="4dp"
+                            android:drawableLeft="@drawable/group_svgrepo_com"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Other" />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+                <!--  Date of Birth  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Date of Birth"
+                    app:boxStrokeWidth="2dp"
+                    android:id="@+id/edDateOfBirthLayout"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:startIconDrawable="@drawable/calendar"
+                    app:helperText="Double click to enter date"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edDateOfBirth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:editable="false"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Identification mark -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Any Identification Mark?"
+                    android:id="@+id/tvAnyIdentificationMark"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/identification_mark"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edIdentificationMark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  blood group   -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+
+                        android:text="Blood Group"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/spSelectBloodGroup"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:entries="@array/select_Blood_Group_Employees"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Blood Group"
+                        android:padding="5dp"
+                        />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Disease if any?"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/disease"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edDiseaseIfAny"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+                <!--  Student Birth From ID/ NIC   -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Student Birth From ID/ NIC"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/previous_id"
+
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="@dimen/layout_margin_top_text_input_layout"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBirthId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--  Select caste  -->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/spSelectCastLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Caste"
+                        android:drawablePadding="5dp"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/spSelectCast"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:entries="@array/select_Cast"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Caste"
+                        android:padding="5dp"/>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <!-- Gone-->
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Previous School"
+                        android:textColor="@color/global_textview_color"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/edit_text_background1"
+                        android:hint="Enter previous Id"
+                        android:paddingStart="20dp">
+                    </EditText>
+                </LinearLayout>
+
+                <!-- Previous school-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Previous School"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/nameofinstitue"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPreviousSchool"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Previous school Id-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Previous ID / Board Roll No."
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/previous_roll_number"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPreviousId"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--Any Additional Note-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Any Additional Note?"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:startIconDrawable="@drawable/identification_mark"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAnyAdditionalNote"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--                app:startIconDrawable="@drawable/orphan"-->
+                <!--Orphan Student-->
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Orphan Student"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/global_textview_color"/>
+                    <RadioGroup
+                        android:id="@+id/etOrphanStudentRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp">
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/orphanYes"
+                            android:drawablePadding="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/orphanNo"
+                            android:drawablePadding="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No" />
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+                <!--                <com.google.android.material.textfield.TextInputLayout-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:hint="Orphan Student"-->
+                <!--                    app:boxStrokeWidth="2dp"-->
+                <!--                    app:startIconDrawable="@drawable/orphan"-->
+                <!--                    app:hintTextAppearance="@style/CustomLabelTextAppearance"-->
+                <!--                    app:boxStrokeErrorColor="@color/red"-->
+
+                <!--                    app:boxBackgroundColor="@color/background_color_textinpulayout"-->
+                <!--                    android:layout_marginTop="10dp"-->
+                <!--                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"-->
+                <!--                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"-->
+                <!--                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"-->
+                <!--                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"-->
+                <!--                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+
+                <!--                    <com.google.android.material.textfield.TextInputEditText-->
+                <!--                        android:id="@+id/etOrphanStudent"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        />-->
+
+                <!--                </com.google.android.material.textfield.TextInputLayout>-->
+
+
+                <!-- Enter OSC-->
+                <LinearLayout
+                    android:layout_marginTop="16dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_marginStart="15dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Physical Disability"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/global_textview_color"/>
+                    <RadioGroup
+                        android:id="@+id/etPhiscalDisabilityRadio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp">
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/disableYes"
+                            android:drawablePadding="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Yes" />
+
+                        <RadioButton
+                            android:textColor="@color/global_textview_color"
+                            android:layout_weight="0.5"
+                            android:id="@+id/disableNo"
+                            android:drawablePadding="4dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="No" />
+                    </RadioGroup>
+
+                </LinearLayout>
+                <!--                <androidx.appcompat.widget.LinearLayoutCompat-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="16dp"-->
+                <!--                    android:background="@drawable/border"-->
+                <!--                    android:orientation="vertical"-->
+                <!--                    android:padding="5dp">-->
+
+                <!--                    <TextView-->
+                <!--                        android:layout_width="wrap_content"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:padding="5dp"-->
+                <!--                        android:text="OSC (Physical Disability)"-->
+                <!--                        android:drawablePadding="5dp"-->
+                <!--                        android:textSize="16sp" />-->
+
+                <!--                    <Spinner-->
+                <!--                        android:id="@+id/OSCSpinner"-->
+                <!--                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"-->
+                <!--                        android:layout_width="match_parent"-->
+                <!--                        android:entries="@array/select_OrphanStudent"-->
+                <!--                        android:layout_height="wrap_content"-->
+                <!--                        android:hint="Select OSC"-->
+                <!--                        android:padding="5dp"-->
+                <!--                        />-->
+                <!--                </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+                <!-- Religion-->
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/spSelectReligionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Religion"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/spSelectReligion"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:entries="@array/select_Religion_Employees"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Religion"
+                        android:padding="5dp"
+                        />
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+                <!-- Select Family-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Family"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/family"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etSelectFamily"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Total Siblings-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Total Siblings"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/group_svgrepo_com"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etTotalSibling"
+                        android:layout_width="match_parent"
+                        android:inputType="number"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Address-->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Current Address"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/location_pointer_svgrepo_com"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3. Father Information"
+                    android:textColor="#9E9E9E"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:textSize="18dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#9E9E9E"/>
+
+                <!--  Father Name  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Father Name"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/male_svgrepo_com"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Father Education  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Education"
+                    app:startIconDrawable="@drawable/education"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherEducatino"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Father National Id  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="National Id"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/previous_id"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Father Mobile Number  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etFatherMobileLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number"
+                    app:startIconDrawable="@drawable/phone_svgrepo_com"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherMobile"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Father Occupation  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Occupation"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/occupation"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Father Profession  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Profession"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/profession"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etFatherProfession"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!-- Father Income  -->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:id="@+id/etFatherIncomeLayout"
+                    android:background="@drawable/border"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+
+                        android:text="Income"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/etFatherIncome"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:entries="@array/select_income"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Religion"
+                        android:padding="5dp"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_marginTop="25dp"
+                android:orientation="vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.Mother Information"
+                    android:textColor="#9E9E9E"
+                    android:textStyle="bold"
+                    android:layout_marginStart="15dp"
+                    android:textSize="16dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#9E9E9E"/>
+
+                <!--Mother Name  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mother Name"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/female_svgrepo_com"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  Mother Education  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Education"
+                    app:startIconDrawable="@drawable/education"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherEducation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Mother National Id  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="National Id"
+                    app:startIconDrawable="@drawable/previous_id"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherID"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!-- Mother Mobile number  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etMotherMobileLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Mobile Number"
+                    app:boxStrokeWidth="2dp"
+                    app:startIconDrawable="@drawable/phone_svgrepo_com"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherMobile"
+                        android:inputType="number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <!--  mother occupation  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etMotherOccupationLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Occupation"
+                    app:startIconDrawable="@drawable/occupation"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherOccupation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  mother profession  -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Profession"
+                    app:startIconDrawable="@drawable/profession"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etMotherProfession"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <!--  mother Identity Mark -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Identity Mark"
+                    app:startIconDrawable="@drawable/identification_mark"
+                    app:boxStrokeWidth="2dp"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etIdentityMark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+                <!--  mother Income  -->
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:id="@+id/etMotherIncomeLayout"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Income"
+
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/etMotherIncome"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:entries="@array/select_income"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Religion"
+                        android:padding="5dp"
+                        />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/border"
+                    android:id="@+id/edtspdriver"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:text="Driver"
+                        android:textSize="16sp" />
+
+                    <Spinner
+                        android:id="@+id/sppnerdriver"
+                        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Select Driver"
+                        android:padding="5dp"
+                        />
+                    <Spinner
+                        android:visibility="gone"
+                        android:id="@+id/onlyId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                <!--  Created at  -->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Created at"
+                    app:boxStrokeWidth="2dp"
+                    android:visibility="gone"
+                    app:hintTextAppearance="@style/CustomLabelTextAppearance"
+                    app:boxStrokeErrorColor="@color/red"
+                    app:boxBackgroundColor="@color/background_color_textinpulayout"
+                    android:layout_marginTop="10dp"
+                    app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                    app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                    app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                    app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etcreatedAt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="32dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnResetButton"
+                    android:textStyle="bold"
+                    android:textColor="@color/global_button_text_color"
+                    android:backgroundTint="@color/global_button_background"
+                    android:text="Reset"/>
+
+
+                <Button
+                    android:id="@id/btnSubmit"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textColor="@color/global_button_text_color"
+                    android:backgroundTint="@color/global_button_background"
+                    android:text="Submit"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
 
 </FrameLayout>

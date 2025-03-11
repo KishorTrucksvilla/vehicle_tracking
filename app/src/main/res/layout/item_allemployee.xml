@@ -1,0 +1,89 @@
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/imageViewEmployee"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@drawable/maleemployee"
+            android:contentDescription="Employee Image"
+            android:layout_marginBottom="8dp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:id="@+id/tvEmployeeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employee Name"
+            android:textSize="12sp"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/tvEmployeeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employee Title"
+            android:textSize="16sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/global_specific_text_color_blue"
+            android:layout_gravity="center"/>
+
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Employee Title"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/gray"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/iconEdit"
+                android:layout_width="29dp"
+                android:layout_height="match_parent"
+                android:contentDescription="Edit"
+                android:src="@drawable/editstudent" />
+
+            <ImageView
+                android:id="@+id/iconDelete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/deletestudent"
+                android:contentDescription="Delete"
+                android:layout_marginStart="16dp" />
+
+            <ImageView
+                android:id="@+id/iconSearch"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/viewemployee"
+                android:contentDescription="Search"
+                android:layout_marginStart="16dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

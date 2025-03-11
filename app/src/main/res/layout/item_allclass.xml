@@ -1,0 +1,319 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="4dp"
+    app:cardCornerRadius="10dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/class_bg">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvClassName"
+                    android:background="@drawable/bg_presenty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="8dp"
+                    android:text="Class Name"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:id="@+id/idtest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Class Name"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iconClassEdit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/editstudent" />
+
+            <ImageView
+                android:id="@+id/iconDelete"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Delete"
+                android:src="@drawable/deletestudent" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/total_students_color_image"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Total Students"
+                            android:layout_gravity="center"
+                            android:textColor="#757575"
+                            android:textSize="14sp"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:src="@drawable/arrow_right"/>
+
+                        <TextView
+                            android:id="@+id/tvClassDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text=""
+                            android:textStyle="bold"
+                            android:textColor="@color/global_specific_text_color_blue"
+                            android:textSize="22sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/malestudent"/>
+
+
+                    <LinearLayout
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Boys"
+                            android:paddingRight="8dp"
+                            android:paddingLeft="8dp"
+                            android:background="@drawable/bg_forpresenty"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#757575"
+                            android:textSize="14sp"/>
+
+                        <ImageView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/arrow_right"/>
+
+                        <TextView
+
+                            android:id="@+id/tvBoys"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/global_specific_text_color_blue"
+                            android:textStyle="bold"
+                            android:textSize="22sp" />
+
+
+                    </LinearLayout>
+
+                    <com.example.buttraking.utils.CircularProgressViewTotalStudents
+                        android:id="@+id/circularProgressViewTotalBoys"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="90dp"
+                        android:layout_gravity="center"
+                        android:layout_height="90dp" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/femalestudent"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal">
+
+
+                        <TextView
+                            android:layout_weight="0.5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Girls"
+                            android:paddingRight="8dp"
+                            android:paddingLeft="8dp"
+                            android:background="@drawable/bg_forpresenty"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="#757575"
+                            android:textSize="14sp"/>
+
+                        <ImageView
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/arrow_right"/>
+
+                        <TextView
+                            android:id="@+id/tvGirls"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text=""
+                            android:textColor="@color/global_specific_text_color_blue"
+                            android:textStyle="bold"
+                            android:textSize="22sp"  />
+
+
+
+
+                    </LinearLayout>
+
+                    <com.example.buttraking.utils.CircularProgressViewTotalStudents
+                        android:id="@+id/circularProgressViewTotalGirls"
+                        android:layout_marginTop="4dp"
+                        android:layout_width="90dp"
+                        android:layout_gravity="center"
+                        android:layout_height="90dp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+        <!--        <LinearLayout-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:orientation="horizontal">-->
+
+        <!--            <TextView-->
+        <!--                -->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="4dp"-->
+        <!--                android:layout_weight="0.5"-->
+        <!--                android:text="Class Description"-->
+        <!--                android:textColor="@android:color/darker_gray"-->
+        <!--                android:textSize="14sp" />-->
+
+        <!--            <TextView-->
+        <!--                -->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="4dp"-->
+        <!--                android:layout_weight="0.5"-->
+        <!--                android:text="Boys:"-->
+        <!--                android:textColor="@android:color/darker_gray"-->
+        <!--                android:textSize="14sp" />-->
+
+        <!--            <TextView-->
+        <!--               -->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_marginTop="4dp"-->
+        <!--                android:layout_weight="0.5"-->
+        <!--                android:text="Girls:"-->
+        <!--                android:textColor="@android:color/darker_gray"-->
+        <!--                android:textSize="14sp" />-->
+        <!--        </LinearLayout>-->
+
+
+
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

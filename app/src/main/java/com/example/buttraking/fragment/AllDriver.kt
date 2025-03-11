@@ -1,60 +1,152 @@
 package com.example.buttraking.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.buttraking.IDDetail.SchoolId
 import com.example.buttraking.R
+import com.example.buttraking.adapter.AllDriverAdapter
+import com.example.buttraking.api.RetrofitHelper
+import com.example.buttraking.databinding.FragmentAllDriverBinding
+import com.example.buttraking.dataclass.VehicleDataAdmin
+import com.example.buttraking.repository.GetAdmindataRepository
+import com.example.buttraking.viewmodel.GetAdmindataViewModel
+import com.example.buttraking.viewmodelfactory.ViewModelFactoryAdmindata
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [AllDriver.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AllDriver : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+class AllDriver : Fragment(), AllDriverAdapter.OnDriverActionListener {
+    private lateinit var binding: FragmentAllDriverBinding
+    private lateinit var viewModel: GetAdmindataViewModel
+    private lateinit var allDriverAdapter: AllDriverAdapter
+    private val driverList = mutableListOf<VehicleDataAdmin>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_all_driver, container, false)
+    ): View {
+        binding = FragmentAllDriverBinding.inflate(inflater, container, false)
+        setupRecyclerView()
+        setupSearchView()
+        setupViewModel()
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AllDriver.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AllDriver().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setupViewModel() {
+        val apiService = RetrofitHelper.getApiService()
+        val repository = GetAdmindataRepository(apiService)
+        val factory = ViewModelFactoryAdmindata(repository)
+        viewModel = ViewModelProvider(this, factory).get(GetAdmindataViewModel::class.java)
+
+        val schoolId = SchoolId().getSchoolId(requireContext()).trim()
+        Log.d("ViewModelSetup", "Fetching data for School ID: $schoolId")
+
+        viewModel.fetcAdmindata(schoolId)
+        observeData()
     }
+
+    private fun observeData() {
+        viewModel.Adminrdata.observe(viewLifecycleOwner, Observer { response ->
+            if (response?.status == true && !response.data.isNullOrEmpty()) {
+                Log.d("LatLongData", "Received ${response.data.size} drivers")
+                allDriverAdapter.updateList(response.data) // Call updateList here
+            } else {
+                Log.e("LatLongData", "No data received or status is false")
+            }
+        })
+    }
+
+
+    private fun setupRecyclerView() {
+        val gridLayoutManager = GridLayoutManager(requireContext(), 2)
+        binding.recyclerViewAllEmployees.apply {
+            layoutManager = gridLayoutManager
+            setHasFixedSize(true)
+            allDriverAdapter = AllDriverAdapter(driverList, this@AllDriver) // Correct reference to Fragment
+            adapter = allDriverAdapter
+        }
+    }
+
+    private fun setupSearchView() {
+        binding.searchViewEmployees.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
+            androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                allDriverAdapter.filter.filter(query)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                allDriverAdapter.filter.filter(newText)
+                return false
+            }
+        })
+    }
+
+
+    override fun onEditDriver(driver: VehicleDataAdmin) {
+        val bundle = Bundle().apply {
+            putParcelable("driver", driver)
+        }
+
+        val employeeDetailFragment = editdriver().apply {
+            arguments = bundle
+        }
+
+        (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, employeeDetailFragment)
+            //.addToBackStack(null)
+            .commit()
+    }
+
+    override fun onDeleteDriver(driver: VehicleDataAdmin, position: Int) {
+        val schoolId = driver.school_id.trim()
+        val employeeId = driver.id
+        val employeeName = driver.driver_name
+
+        androidx.appcompat.app.AlertDialog.Builder(requireContext())
+            .setTitle("Delete $employeeName")
+            .setMessage("Are you sure you want to delete employee?")
+            .setPositiveButton("Yes") { dialog, which ->
+                Log.d("DeleteEmployee", "Attempting to delete employee with ID: $employeeId, School ID: $schoolId")
+
+                viewModel.deletedriver(schoolId, employeeId)
+                    .observe(viewLifecycleOwner) { response ->
+                        if (response != null) {
+                            if (response.status == "success") {
+                                allDriverAdapter.removeDriver(position)
+                                Toast.makeText(requireContext(), response.message, Toast.LENGTH_SHORT).show()
+
+                            } else {
+                                Toast.makeText(requireContext(), response.message, Toast.LENGTH_SHORT).show()
+                            }
+                        } else {
+                            Toast.makeText(requireContext(), "Failed to delete employee", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+            .setNegativeButton("No") { dialog, which ->
+                dialog.dismiss()
+            }
+            .show()
+    }
+    override fun onSearchClick(driver: VehicleDataAdmin) {
+        val bundle = Bundle().apply {
+            putParcelable("driver", driver)
+        }
+
+        val employeeDetailFragment = DriverDetail().apply {
+            arguments = bundle
+        }
+
+        (context as AppCompatActivity).supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, employeeDetailFragment)
+            //.addToBackStack(null)
+            .commit()    }
 }

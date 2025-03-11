@@ -1,14 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.AllDriver">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:background="@drawable/heading_background">
 
-</FrameLayout>
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size"
+            style="@style/heading_text_style"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:layout_weight="0.5"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:gravity="center"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size" android:layout_marginRight="16dp"
+
+
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All Driver"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/title_text_size"
+            android:drawableLeft="@drawable/allstudents"
+            android:drawablePadding="8dp"
+            android:layout_marginEnd="@dimen/title_margin_end"
+            android:layout_gravity="center_vertical"
+            android:textStyle=""/>
+    </LinearLayout>
+
+    <!-- Search View -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_weight="0.5"
+            android:background="@drawable/background_border_radius"
+            android:id="@+id/searchViewEmployees"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:hint="Search employee here..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:queryHint="Search Employees"/>
+
+        <ImageView
+            android:id="@+id/imgAddEmployees"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/addnewemp"/>
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAllEmployees"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        />
+
+    <TextView
+        android:id="@+id/txtForDefault"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No data available."
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:gravity="center"
+        android:padding="16dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="250dp"
+        android:clickable="true"
+        android:visibility="gone" />
+
+</LinearLayout>

@@ -50,7 +50,19 @@
             android:title="Add Student"
             android:visible="false"/>
 
+        <item
+            android:id="@+id/nav_Employee"
+            android:title="Employees"
+            android:icon="@drawable/employees"
+            android:visible="false"/>
 
+        <item android:id="@+id/nav_AllEmployees"
+            android:title="All Employees"
+            android:visible="false"/>
+
+        <item android:id="@+id/nav_AddNewEmployees"
+            android:title="Add New Employees"
+            android:visible="false"/>
         <item android:id="@+id/nav_Bustracking"
             android:title="Vehicle Tracking"
             android:visible="false"
@@ -82,6 +94,7 @@
             <item
                 android:id="@+id/nav_logout"
                 android:title="Logout"
+                android:icon="@drawable/exit"
                 />
         </menu>
     </item>

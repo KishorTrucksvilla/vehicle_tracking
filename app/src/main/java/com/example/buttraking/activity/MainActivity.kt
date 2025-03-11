@@ -21,9 +21,11 @@ import com.example.buttraking.IDDetail.SchoolId
 import com.example.buttraking.R
 import com.example.buttraking.api.RetrofitHelper
 import com.example.buttraking.databinding.ActivityMainBinding
+import com.example.buttraking.fragment.AddNewEmployees
 import com.example.buttraking.fragment.AddStudent
 import com.example.buttraking.fragment.AllClass
 import com.example.buttraking.fragment.AllDriver
+import com.example.buttraking.fragment.AllEmployees
 import com.example.buttraking.fragment.AllStudent
 import com.example.buttraking.fragment.Bustracking
 import com.example.buttraking.fragment.DashBoard
@@ -333,9 +335,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             R.id.nav_AllClasses -> {
-                if (!allClassesSubmenu) {
+                /*if (!allClassesSubmenu) {
                     toolBox.showPremiumFeatureDialog(this, this)
-                }
+                }*/
                 // Load the AllClasses fragment when "All Classes" is clicked
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, AllClass()).commit()
@@ -348,17 +350,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
 
             R.id.nav_AllStudents -> {
-                if (!allStudentsSubmenu) {
+              /*  if (!allStudentsSubmenu) {
                     toolBox.showPremiumFeatureDialog(this, this)
-                }
+                }*/
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.fragment_container, AllStudent()).commit()
             }
 
             R.id.nav_AddStudent -> {
-                if (!addStudentSubmenu) {
+               /* if (!addStudentSubmenu) {
                     toolBox.showPremiumFeatureDialog(this, this)
-                }
+                }*/
                 supportFragmentManager.beginTransaction().replace(
                     R.id.fragment_container,
                     AddStudent()
@@ -366,6 +368,23 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
 
+            R.id.nav_AllEmployees -> {
+               /* if (!allEmployeesSubmenu) {
+                    toolBox.showPremiumFeatureDialog(this, this)
+                }*/
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, AllEmployees()).commit()
+            }
+
+            R.id.nav_AddNewEmployees -> {
+                /*if (!addNewEmployeeSubmenu) {
+                    toolBox.showPremiumFeatureDialog(this, this)
+                }*/
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.fragment_container,
+                    AddNewEmployees()
+                ).commit()
+            }
 
 
             R.id.nav_ShowBus -> {
@@ -402,7 +421,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 return true
             }
             // Employee section
-
+            R.id.nav_Employee -> {
+                toggleEmployeeExpandableItems() // Expand/collapse employee items
+                return true
+            }
             R.id.nav_Bustracking -> {
                 toggleBusExpandableItems() // Expand/collapse salary items
                 return true
@@ -585,8 +607,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         menu = navigationView.menu
 
         isSubjectExpanded = !isSubjectExpanded
-      //  menu.findItem(R.id.nav_AllEmployees).isVisible = isSubjectExpanded
-     //   menu.findItem(R.id.nav_AddNewEmployees).isVisible = isSubjectExpanded
+       menu.findItem(R.id.nav_AllEmployees).isVisible = isSubjectExpanded
+       menu.findItem(R.id.nav_AddNewEmployees).isVisible = isSubjectExpanded
        // menu.findItem(R.id.nav_JobLetters).isVisible = isSubjectExpanded
 
         //if (employeesMenu){menu.findItem(R.id.nav_Employee).isVisible = isSubjectExpanded }
@@ -742,14 +764,14 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         fun setMenuItemVisibility(itemId: Int, isVisible: Boolean) {
             menu?.findItem(itemId)?.isVisible = isVisible
         }
-
-       /* setMenuItemVisibility(R.id.nav_student_Paid_fee_recipt, true)
+/*
+        setMenuItemVisibility(R.id.nav_student_Paid_fee_recipt, true)
         setMenuItemVisibility(R.id.nav_student_my_time_table, true)
         setMenuItemVisibility(R.id.nav_student_home_work, true)
         setMenuItemVisibility(R.id.nav_student_message, true)
         setMenuItemVisibility(R.id.nav_student_account_settings, false)
-        setMenuItemVisibility(R.id.nav_student_details, true)
-        setMenuItemVisibility(R.id.nav_Bustrackingstudent, true)*/
+        setMenuItemVisibility(R.id.nav_student_details, true)*/
+        setMenuItemVisibility(R.id.nav_Bustrackingstudent, true)
 
     }
 
@@ -774,8 +796,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             menu?.findItem(itemId)?.isVisible = isVisible
         }
 
-       // setMenuItemVisibility(R.id.nav_Employee, true)
         setMenuItemVisibility(R.id.nav_home, true)
+        setMenuItemVisibility(R.id.nav_Student, studentsMenu)
+        setMenuItemVisibility(R.id.nav_Class, classesMenu)
 /*
         setMenuItemVisibility(R.id.nav_Gsettings, true)
         setMenuItemVisibility(R.id.nav_Fees, true)
@@ -791,6 +814,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setMenuItemVisibility(R.id.nav_Subject, true)
         setMenuItemVisibility(R.id.nav_TimeTable, true)
 */
+        setMenuItemVisibility(R.id.nav_Employee, true)
+
         setMenuItemVisibility(R.id.nav_Bustracking, true)
 /*
         setMenuItemVisibility(R.id.nav_Bustrackingstudent, false)
@@ -803,8 +828,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setMenuItemVisibility(R.id.nav_Messages, messageMenu)
         setMenuItemVisibility(R.id.nav_Accounts, accountMenu)
 */
-        setMenuItemVisibility(R.id.nav_Student, studentsMenu)
-        setMenuItemVisibility(R.id.nav_Class, classesMenu)
+
 /*
         setMenuItemVisibility(R.id.nav_Subject, subjectMenu)
         setMenuItemVisibility(R.id.nav_TimeTable, timetableMenu)

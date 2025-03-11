@@ -4,11 +4,110 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".student.BusTraking">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
+    <LinearLayout
+        android:id="@+id/timerContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/timer_background"
+        android:padding="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:elevation="4dp"
+        android:gravity="center"
+        android:layout_gravity="start|top">
+
+        <!-- Vehicle Number Section -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="4dp">
+
+            <!-- Icon -->
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/schoobus"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Label -->
+            <TextView
+                android:id="@+id/tvVehicleLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vehicle No:"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:paddingEnd="4dp" />
+
+            <!-- Vehicle Number -->
+            <TextView
+                android:id="@+id/tvVehicleNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="XYZ 1234"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_green_light" />
+        </LinearLayout>
+
+        <!-- Last Updated Time -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvUpdatedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last updated:"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/tvVehicleUpdatedTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="--:-- --"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_green_dark"
+                android:padding="4dp" />
+        </LinearLayout>
+
+        <!-- Countdown Timer -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvCountdownLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Next update:"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:padding="4dp" />
+
+            <TextView
+                android:id="@+id/tvCountdownTimer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="15s"
+                android:textSize="14sp"
+                android:textColor="@android:color/holo_red_dark"
+                android:padding="4dp" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

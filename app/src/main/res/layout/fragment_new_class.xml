@@ -3,12 +3,290 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragment.NewClass">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/Subject_Assign_heading_height"
+            android:background="@drawable/heading_background">
+
+            <TextView
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/heading_classes"
+                android:textColor="@color/heading_text_color"
+                android:textSize="@dimen/heading_text_size"
+                android:textStyle="bold"
+                android:layout_marginStart="15dp"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:layout_weight="5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="|"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/heading_text_color"
+                android:textSize="@dimen/heading_text_size"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Class"
+                android:textColor="@color/heading_text_color"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/classwhiteboard"
+                android:textSize="@dimen/title_text_size"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+        <!-- Title "Add New Class" -->
+        <TextView
+            android:id="@+id/tvAddNewClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Class"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="16dp"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            app:contentPadding="10dp">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvTeacherNotAvailable"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Teacher Not Available">
+            </TextView>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/mainLayout"
+                    android:visibility="visible"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical"
+                    >
+
+
+                    <!--            <TextView-->
+                    <!--                android:layout_width="wrap_content"-->
+                    <!--                android:layout_height="wrap_content"-->
+                    <!--                android:layout_marginStart="@dimen/margin_start"-->
+                    <!--                android:text="@string/class_name"-->
+                    <!--                android:textColor="@color/black" />-->
+
+                    <!--            <EditText-->
+                    <!--                android:id="@+id/spClass"-->
+                    <!--                android:layout_width="match_parent"-->
+                    <!--                android:layout_height="@dimen/edit_text_height"-->
+                    <!--                android:layout_marginTop="4dp"-->
+                    <!--                android:background="@drawable/edit_text_background1"-->
+                    <!--                android:hint="@string/enter_class"-->
+                    <!--                android:paddingStart="@dimen/padding_start" />-->
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/outlinedTextField"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Class Name"
+                        app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                        app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                        app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                        app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                        app:boxStrokeErrorColor="@color/red"
+                        app:boxStrokeWidth="2dp"
+                        app:hintTextAppearance="@style/CustomLabelTextAppearance">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/spClass"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Termly Tuition Fees"
+                        app:boxCornerRadiusBottomEnd="@dimen/boxCornerRadiusBottomEnd"
+                        app:boxCornerRadiusBottomStart="@dimen/boxCornerRadiusBottomStart"
+                        app:boxCornerRadiusTopEnd="@dimen/boxCornerRadiusTopEnd"
+                        app:boxCornerRadiusTopStart="@dimen/boxCornerRadiusTopStart"
+                        app:boxStrokeErrorColor="@color/red"
+                        app:boxStrokeWidth="2dp"
+                        app:errorEnabled="true"
+                        app:hintTextAppearance="@style/CustomLabelTextAppearance">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtTuitionfees"
+                            android:inputType="number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/spSelectTeacherLayout"
+                        android:visibility="visible"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Select Teacher"
+                            android:textSize="16sp" />
+
+                        <Spinner
+                            android:id="@+id/etClassTeacher"
+                            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/select_class_teacher"
+                            android:padding="5dp"
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/categoryConnectionLayout"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:hint="Enter Category of Connection"
+                            android:padding="5dp"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/categoryConnectionEt"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Select Teacher"
+                            android:textSize="16sp" />
+
+                        <Spinner
+                            android:id="@+id/etClassTeacher2"
+                            style="@style/ThemeOverlay.Material3.AutoCompleteTextView.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/select_class_teacher"
+                            android:padding="5dp"
+                            />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/categoryConnectionLayout2"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:hint="Enter Category of Connection"
+                            android:padding="5dp"
+                            android:visibility="gone">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/categoryConnectionEt2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="text" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    <TextView
+                        android:id="@+id/btnCreateClas"
+                        android:visibility="visible"
+                        style="@style/CustomButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:background="@drawable/button_state"
+                        android:padding="10dp"
+                        android:clickable="true"
+                        android:textColor="@color/global_button_text_color"
+                        android:focusable="true"
+                        android:text="Create Class" />
+
+                    <Spinner
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/sampleSpinner">
+
+                    </Spinner>
+
+
+
+                </LinearLayout>
+
+            </ScrollView>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
 
 </FrameLayout>

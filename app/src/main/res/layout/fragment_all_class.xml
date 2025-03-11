@@ -5,10 +5,92 @@
     android:layout_height="match_parent"
     tools:context=".fragment.AllClass">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <!--  Heading Layout    -->
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:background="@drawable/heading_background">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="15dp"
+
+                android:text="Classes"
+                android:textColor="@color/heading_text_color"
+                android:textSize="@dimen/heading_text_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_weight="0.5"
+                android:layout_marginLeft="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="|"
+                android:gravity="center"
+                android:textColor="@color/heading_text_color"
+                android:textSize="@dimen/heading_text_size"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end|center"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="2dp"
+                android:drawablePadding="8dp"
+                android:drawableLeft="@drawable/classroom_svgrepo_com"
+                android:text="All Classes"
+                android:textColor="@color/heading_text_color"
+                android:textSize="@dimen/title_text_size" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="visible"
+            android:layout_marginTop="20dp"
+            android:id="@+id/recyclerViewClasses"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"/>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/tvTeacherNotAvailableLayout"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/tvTeacherNotAvailable"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/addnewemp"
+                android:layout_width="200dp"
+                android:layout_height="200dp">
+            </ImageView>
+
+            <TextView
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Class Not Available"
+                android:textStyle="bold"
+                android:textSize="35sp">
+
+            </TextView>
+        </LinearLayout>
+
+    </LinearLayout>
 
 </FrameLayout>

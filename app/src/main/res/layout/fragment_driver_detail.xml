@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.DriverDetail">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/heading_background">
+
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size"
+            android:textStyle="bold"
+            android:layout_marginStart="15dp"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:layout_weight="1.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/heading_text_size"
+
+
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textStyle="bold" />
+
+        <!--        android:drawableLeft="@drawable/student_cap_svgrepo_com"-->
+        <TextView
+            android:layout_weight="0.5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Driver Info"
+            android:drawableLeft="@drawable/student_cap_svgrepo_com"
+            android:textColor="@color/heading_text_color"
+            android:textSize="@dimen/title_text_size"
+            android:drawablePadding="8dp"
+
+            android:layout_marginEnd="15dp"
+            android:layout_gravity="center_vertical"
+            android:textStyle="" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <LinearLayout
+
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/imgEmp"
+                        android:layout_marginTop="10sp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/person">
+                    </ImageView>
+
+                    <TextView
+                        android:layout_marginTop="16dp"
+                        android:id="@+id/etStudentName"
+                        android:textColor="#DC1242C5"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:textSize="24sp"
+                        android:text="Mitansh Kailash Kamble"/>
+
+                    <LinearLayout
+                        android:background="@drawable/background_border_radius"
+                        android:layout_marginTop="16dp"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:padding="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:background="@color/info_bg"
+                            android:padding="3dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_marginLeft="4dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="0.5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Role">
+                            </TextView>
+                            <TextView
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/edtrole"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:layout_marginRight="8dp"
+                                android:textColor="@color/black"
+                                android:text="">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:visibility="gone"
+                            android:padding="3dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_marginLeft="4dp"
+                                android:layout_weight="0.5"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="School Id">
+                            </TextView>
+                            <TextView
+                                android:layout_marginRight="8dp"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/etschoolId"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:background="@color/white"
+                            android:padding="3dp"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="4dp"
+                                android:layout_weight="0.5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Mobile No.">
+                            </TextView>
+                            <TextView
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="8dp"
+                                android:id="@+id/etPhoneNumber"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+
+                                android:textColor="@color/black"
+                                android:text="">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:padding="3dp"
+                            android:background="@color/info_bg"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_marginLeft="4dp"
+                                android:layout_weight="0.5"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Username">
+                            </TextView>
+                            <TextView
+                                android:layout_marginRight="8dp"
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/etUsername"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:padding="3dp"
+                            android:background="@color/white"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_weight="0.5"
+                                android:layout_marginLeft="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Password">
+                            </TextView>
+
+                            <ImageView
+                                android:id="@+id/togglePasswordVisibility"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/eyeoffpassword"
+                                android:contentDescription="Toggle Password Visibility"
+                                android:padding="8dp" />
+
+                            <TextView
+                                android:layout_gravity="center_vertical"
+                                android:id="@+id/etPassword"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textStyle="bold"
+                                android:gravity="end"
+                                android:textColor="@color/black"
+                                android:text="">
+                            </TextView>
+
+
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:padding="3dp"
+                            android:background="@color/info_bg"
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp">
+                            <TextView
+                                android:layout_weight="0.5"
+                                android:layout_marginLeft="4dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Status">
+                            </TextView>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layoutEmpInfo"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:orientation="vertical">
+
+                            <!-- Email Address-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:background="@color/info_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Email">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/edtemailaddres"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Mobile number-->
+
+
+                            <!-- Education-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:background="@color/info_bg"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Education">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/etEducation"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Father/Husband name-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:background="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="F/H Name">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/etFatherName"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Monthly Salary-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:background="@color/info_bg"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Monthly Salary">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/etSalary"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Date of Birth-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Date of Birth">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/edDateOfBirth"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Adhaar/PAN No.-->
+
+                            <LinearLayout
+                                android:background="@color/info_bg"
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Adhaar/PAN No.">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/edAdhaarPanNo"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Religion-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Religion">
+                                </TextView>
+                                <TextView
+                                    android:id="@+id/spSelectReligion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Gender-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:background="@color/info_bg"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Gender">
+                                </TextView>
+                                <TextView
+                                    android:id="@+id/radioGroupGender"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:textStyle="bold"
+                                    android:layout_marginRight="8dp"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Blood group-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+                                <TextView
+                                    android:layout_marginLeft="4dp"
+                                    android:layout_weight="0.5"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Blood Group">
+                                </TextView>
+                                <TextView
+                                    android:layout_marginRight="8dp"
+                                    android:id="@+id/spSelectBloodGroup"
+                                    android:layout_width="wrap_content"
+                                    android:layout_gravity="center_vertical"
+                                    android:layout_height="wrap_content"
+                                    android:textStyle="bold"
+                                    android:textColor="@color/black"
+                                    android:text="">
+                                </TextView>
+                            </LinearLayout>
+
+                            <!-- Address-->
+
+                            <LinearLayout
+                                android:padding="3dp"
+                                android:background="@color/info_bg"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp">
+
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_marginLeft="4dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_height="wrap_content"
+                                        android:text="Address"/>
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_weight="1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="16dp"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_marginRight="8dp"
+                                        android:id="@+id/etAddress"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:textStyle="bold"
+                                        android:layout_gravity="end"
+                                        android:gravity="end"
+                                        android:textColor="@color/black"
+                                        android:text="">
+                                    </TextView>
+
+
+                                </LinearLayout>
+
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/txtSeeMore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="See more..."
+                        android:textStyle="bold"
+                        android:layout_gravity="center"
+                        android:textColor="#DC1242C5"/>
+
+
+                </LinearLayout>
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+</FrameLayout>
